@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+    <!--Linking Font Awesome for icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <!--Linking Swiper CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="contact.css">
+
+
+    <!-- Load EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+    // Initialize EmailJS
+        (function(){
+        emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual Public Key
+        })();
+    </script>
+
+
+</head>
+<body>
+    <!-- Header / Navbar-->
+    <header>
+        <nav class="navbar section-content">
+            <a href="#" class="nav-logo">
+                <img src="images/ChatGPT Image Aug 29, 2025, 09_10_11 PM.png" alt="" class="logo-text">
+                <!--<h2 class="logo-text">Coffee</h2>-->
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fas fa-times"></button>
+
+                <li class="nav-item">
+                    <a href="file:///C:/Users/MacLink/Desktop/final%20project/home.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="file:///C:/Users/MacLink/Desktop/final%20project/about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="file:///C:/Users/MacLink/Desktop/final%20project/product.html" class="nav-link">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="file:///C:/Users/MacLink/Desktop/final%20project/staff.html" class="nav-link">Staff</a>
+                </li>
+                <li class="nav-item">
+                    <a href="file:///C:/Users/MacLink/Desktop/final%20project/gallery.html" class="nav-link">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+            <button id="menu-open-button" class="fas fa-bars"></button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-section" id="contact">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="section-content">
+                <ul class="contact-info-list">
+                    <li class="contact-info">
+                        <i class="fa-solid fa-location-crosshairs"></i>
+                        <p>Abhises Land, Deeyawala Road,<br/> 
+                           Annaruwa, Kithalawa, Kuliyapitiya, Sri Lanka</p>
+                    </li>
+                    <li class="contact-info">
+                        <i class="fa-regular fa-envelope"></i>
+                        <p>lmarasingha@yahoo.com</p>
+                    </li>
+                    <li class="contact-info">
+                        <i class="fa-solid fa-phone"></i>
+                        <p>Tel: 0372059744<br/>
+                            Hot Line: 0770243500</p>
+                    </li>
+                </ul>
+
+                <form action="" class="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" class="form-input" required>
+                    <input type="email" name="email" placeholder="Your Email" class="form-input" required>
+                    <input type="text" name="subject" placeholder="Your Subject" class="form-input" required>
+                    <textarea name="message" placeholder="Your Message" class="form-input" required></textarea>
+                    <button type="submit" class="submit-button">Submit</button>
+                    <br/>
+                    <span id="msg"></span>
+                </form>
+            </div>
+        </section>
+        <footer class="footer-section">
+            <div class="section-content">
+                <p class="copyright-text">Copyright © 2025 All Rights Reserved by HI-GROW LANKA (PVT) LTD</p>
+
+                <!--<div class="social-link-list">
+                    <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>-->
+
+                <!--<p class="policy-text">
+                    <a href="#" class="policy-link">Privacy policy</a>
+                    <span class="separator">•</span>
+                    <a href="#" class="policy-link">Refund policy</a>
+                </p>-->
+            </div>
+        </footer>
+
+    </main>
+
+    <!--Linking Swiper script-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!--Linking custom script-->
+    <script src="script.js"></script>
+
+
+
+    <script>
+    // Attach event listener AFTER form is loaded
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+            .then(() => {
+            alert("Message sent successfully!");
+            this.reset(); // Clear form after success
+            }, (err) => {
+            alert("Failed to send message.\nError: " + JSON.stringify(err));
+            });
+        });
+  </script>
+
+
+
+    
+</body>
+</html>
